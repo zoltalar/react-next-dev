@@ -12,8 +12,14 @@ const collection: IComponent[] = [
     id: 2,
     name: 'Breadcrumbs',
     slug: 'breadcrumbs',
-    description: '<code>breadcrumbs</code> navigation component'
+    description: '<code>Breadcrumbs</code> navigation component'
   },
+  {
+    id: 3,
+    name: 'Modal',
+    slug: 'modal',
+    description: '<code>Modal</code> component utilizing the <code>&lt;dialog&gt;</code> tag'
+  }
 ]
 
 export async function GET() {
