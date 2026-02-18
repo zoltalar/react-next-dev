@@ -1,6 +1,9 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next'
+import { Geist, Geist_Mono } from 'next/font/google'
+import MainMenu from '@/app/components/ui/main-menu'
+import Navigation from '@/app/components/ui/navigation'
+import NavBrand from '@/app/components/ui/nav-brand'
+import '@/app/globals.css'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,14 +24,24 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) {  
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="container mx-auto px-3">
+          <Navigation>
+            <NavBrand />
+            <MainMenu />
+          </Navigation>
+        </div>
+        <section className="bg-zinc-50 border-t border-gray-100 h-[calc(100vh-3rem)]">
+          <div className="container mx-auto px-3">
+            {children}
+          </div>
+        </section>
       </body>
     </html>
-  );
+  )
 }
