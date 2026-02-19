@@ -6,7 +6,7 @@ export default async function Components() {
   const components: IComponent[] = await (await fetch('http://localhost:3000/api/components')).json()
   return (
     <>
-      <Heading variant="secondary" margin="mt-5 mb-5">Components</Heading>
+      <Heading color="secondary" margin="mt-5 mb-5">Components</Heading>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {components.map((component: IComponent) => (
           <NextLink

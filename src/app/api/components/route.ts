@@ -16,6 +16,12 @@ const collection: IComponent[] = [
   },
   {
     id: 3,
+    name: 'Button',
+    slug: 'button',
+    description: 'Simple <code>Button</code> component'
+  },
+  {
+    id: 4,
     name: 'Modal',
     slug: 'modal',
     description: '<code>Modal</code> component utilizing the <code>&lt;dialog&gt;</code> tag'

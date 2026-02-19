@@ -11,7 +11,7 @@ export default async function BreadcrumbsComponent() {
   ]
   return (
     <>
-      <Heading variant="secondary" margin="mt-5 mb-4"><code>Breadcrumbs</code> Component</Heading>
+      <Heading color="secondary" margin="mt-5 mb-4"><code>Breadcrumbs</code> Component</Heading>
       <hr className="border-gray-100 mb-3" />
       <Breadcrumbs items={breadcrumbItems} />
       <Breadcrumbs items={breadcrumbItems} separator=">" />

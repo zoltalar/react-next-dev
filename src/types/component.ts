@@ -10,6 +10,14 @@ export interface IBreadcrumbProps {
   separator?: string
 }
 
+export interface IButtonProps {
+  children: React.ReactNode,
+  color?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark',
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
+  command?: string,
+  commandfor?: string
+}
+
 export interface IComponent {
   id: number,
   name: string,
@@ -22,7 +30,7 @@ export interface IComponentProps {
 }
 
 export interface IHeadingProps {
-  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark'
+  color?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark'
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl',
   weight?: 'thin' | 'extralight' | 'light' | 'normal' | 'medium' | 'semibold' | 'bold'
   margin?: string,  

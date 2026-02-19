@@ -4,7 +4,7 @@ import Heading from '@/app/components/ui/heading'
 export default async function HeadingComponent() {
   return (
     <>
-      <Heading variant="secondary" margin="mt-5 mb-4"><code>Heading</code> Component</Heading>
+      <Heading color="secondary" margin="mt-5 mb-4"><code>Heading</code> Component</Heading>
       <hr className="border-gray-100 mb-3" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <div>
@@ -16,20 +16,20 @@ export default async function HeadingComponent() {
           <Heading size="xs">Heading 6</Heading>
         </div>
         <div>
-          <Heading variant="primary" size="2xl">Heading 1</Heading>
-          <Heading variant="secondary" size="xl">Heading 2</Heading>
-          <Heading variant="success" size="lg">Heading 3</Heading>
-          <Heading variant="danger" size="md">Heading 4</Heading>
-          <Heading variant="warning" size="sm">Heading 5</Heading>
-          <Heading variant="info" size="xs">Heading 6</Heading>
+          <Heading color="primary" size="2xl">Heading 1</Heading>
+          <Heading color="secondary" size="xl">Heading 2</Heading>
+          <Heading color="success" size="lg">Heading 3</Heading>
+          <Heading color="danger" size="md">Heading 4</Heading>
+          <Heading color="warning" size="sm">Heading 5</Heading>
+          <Heading color="info" size="xs">Heading 6</Heading>
         </div>
         <div>
-          <Heading variant="secondary" size="2xl" weight="bold">Heading 1</Heading>
-          <Heading variant="secondary" size="xl" weight="semibold">Heading 2</Heading>
-          <Heading variant="secondary" size="lg" weight="normal">Heading 3</Heading>
-          <Heading variant="secondary" size="md" weight="light">Heading 4</Heading>
-          <Heading variant="secondary" size="sm" weight="extralight">Heading 5</Heading>
-          <Heading variant="secondary" size="xs" weight="thin">Heading 6</Heading>
+          <Heading color="secondary" size="2xl" weight="bold">Heading 1</Heading>
+          <Heading color="secondary" size="xl" weight="semibold">Heading 2</Heading>
+          <Heading color="secondary" size="lg" weight="normal">Heading 3</Heading>
+          <Heading color="secondary" size="md" weight="light">Heading 4</Heading>
+          <Heading color="secondary" size="sm" weight="extralight">Heading 5</Heading>
+          <Heading color="secondary" size="xs" weight="thin">Heading 6</Heading>
         </div>
       </div>
       <hr className="border-gray-100 mt-4 mb-4" />

@@ -1,13 +1,19 @@
 import NextLink from 'next/link'
+import Button from '@/app/components/ui/button'
 import Heading from '@/app/components/ui/heading'
 import Modal from '@/app/components/ui/modal'
 
 export default async function ModalComponent() {
   return (
     <>
-      <Heading variant="secondary" margin="mt-5 mb-4"><code>Modal</code> Component</Heading>
+      <Heading color="secondary" margin="mt-5 mb-4"><code>Modal</code> Component</Heading>
       <hr className="border-gray-100 mb-3" />
-      <button command="show-modal" commandfor="dialog-1">Open Dialog</button>
+      <Button
+        command="show-modal"
+        commandfor="dialog-1"
+      >
+        Open Dialog 1
+      </Button>
       <Modal
         id="dialog-1"
         title="Modal Dialog Title"

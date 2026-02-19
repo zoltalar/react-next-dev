@@ -3,13 +3,13 @@ import { clsx } from 'clsx'
 import type { IHeadingProps } from '@/types/component'
 
 const Heading: React.FC<IHeadingProps> = ({
-  variant = 'primary',
+  color = 'primary',
   size = 'md',
   weight = 'medium',
   margin = 'mb-3',
   children
 }) => {
-  const variants = {
+  const colors = {
     'primary': 'text-blue-500',
     'secondary': 'text-gray-700',
     'success': 'text-green-500',
@@ -28,13 +28,10 @@ const Heading: React.FC<IHeadingProps> = ({
     }
     return `text-${size}`
   }
-  const textColor = (): string => {
-    return variants[variant]
-  }
   const classes = clsx([
     textClass(),
     fontWeight(),
-    textColor(),
+    colors[color],
     margin
   ])
   const renderTag = () => {
