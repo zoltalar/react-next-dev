@@ -10,12 +10,10 @@ export interface IBreadcrumbProps {
   separator?: string
 }
 
-export interface IButtonProps {
+export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode,
   color?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark',
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl',
-  command?: string,
-  commandfor?: string
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 }
 
 export interface IComponent {
@@ -37,7 +35,7 @@ export interface IHeadingProps {
   children: React.ReactNode
 }
 
-export interface IModalProps {
+export interface IModalProps extends React.DialogHTMLAttributes<HTMLDialogElement> {
   id: string,
   title: string,
   backdrop?: string | boolean,

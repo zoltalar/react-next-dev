@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { clsx } from 'clsx'
 import type { IButtonProps } from '@/types/component'
@@ -6,8 +8,7 @@ const Button: React.FC<IButtonProps> = ({
   children,
   color = 'primary',
   size = 'md',
-  command,
-  commandfor
+  ...props
 }) => {
   const colors = {
     primary: 'bg-blue-500 text-white',
@@ -23,32 +24,21 @@ const Button: React.FC<IButtonProps> = ({
     base: 'rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors'
   }
   const sizes = {
-    xs: {
-      base: 'px-2 py-1 text-xs gap-1'
-    },
-    sm: {
-      base: 'px-2.5 py-1.5 text-xs gap-1.5'
-    },
-    md: {
-      base: 'px-2.5 py-1.5 text-sm gap-1.5'
-    },
-    lg: {
-      base: 'px-3 py-2 text-sm gap-2'
-    },
-    xl: {
-      base: 'px-3 py-2 text-base gap-2'
-    }
+    xs: 'px-2 py-1 text-xs gap-1',
+    sm: 'px-2.5 py-1.5 text-xs gap-1.5',
+    md: 'px-2.5 py-1.5 text-sm gap-1.5',
+    lg: 'px-3 py-2 text-sm gap-2',
+    xl:'px-3 py-2 text-base gap-2'
   }
-  const buttonClasses = clsx([
+  const classes = clsx([
     colors[color],
     slots.base,
-    sizes[size].base
+    sizes[size]
   ])
   return (
     <button
-      command={command}
-      commandfor={commandfor}
-      className={buttonClasses}
+      className={classes}
+      {...props}
     >
       {children}
     </button>

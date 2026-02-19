@@ -19,9 +19,6 @@ const Heading: React.FC<IHeadingProps> = ({
     'light': 'text-zinc-100',
     'dark': 'text-gray-900'
   }
-  const fontWeight = (): string => {
-    return `font-${weight}`
-  } 
   const textClass = (): string => {
     if (size === 'md') {
       return 'text-base'
@@ -30,7 +27,7 @@ const Heading: React.FC<IHeadingProps> = ({
   }
   const classes = clsx([
     textClass(),
-    fontWeight(),
+    `font-${weight}`,
     colors[color],
     margin
   ])

@@ -99,9 +99,9 @@ export default function Home() {
               cx={centerX}
               cy={centerY}
               r={radius}
-              stroke="#ccc"
+              stroke="#bbb"
               strokeWidth="1.5"
-              fill="none"
+              fill="#fafafa"
               opacity={0.7 - i * 0.1}
             />
           ))}

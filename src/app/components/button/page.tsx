@@ -1,8 +1,11 @@
+'use client'
+
+import React from 'react'
 import NextLink from 'next/link'
 import Button from '@/app/components/ui/button'
 import Heading from '@/app/components/ui/heading'
 
-export default async function ButtonComponent() {
+export default function ButtonComponent() {
   return (
     <>
       <Heading color="secondary" margin="mt-5 mb-4"><code>Button</code> Component</Heading>
