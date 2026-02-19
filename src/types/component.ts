@@ -31,15 +31,14 @@ export interface IHeadingProps {
   color?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark'
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl',
   weight?: 'thin' | 'extralight' | 'light' | 'normal' | 'medium' | 'semibold' | 'bold'
-  margin?: string,  
+  margin?: string,
   children: React.ReactNode
 }
 
 export interface IModalProps extends React.DialogHTMLAttributes<HTMLDialogElement> {
-  id: string,
   title: string,
-  backdrop?: string | boolean,
   size?: 'sm' | 'md' | 'lg' | 'xl'
   footer?: React.ReactNode,
+  onClose: () => void,
   children: React.ReactNode
 }

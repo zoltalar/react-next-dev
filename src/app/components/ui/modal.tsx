@@ -1,20 +1,18 @@
+'use client'
+
 import React from 'react'
 import { clsx } from 'clsx'
 import Heading from '@/app/components/ui/heading'
 import type { IModalProps } from '@/types/component'
 
 const Modal: React.FC<IModalProps> = ({
-  id,
   title,
-  backdrop = 'bg-gray-700/25',
   size = 'md',
   footer,
-  children
+  children,
+  onClose,
+  ...props
 }) => {
-  const dialogClasses = clsx([
-    'w-full open:flex bg-transparent',
-    (backdrop ? 'backdrop:' + backdrop : '')
-  ])
   const sizes = {
     'sm': 'max-w-md',
     'md': 'max-w-xl',
@@ -26,12 +24,12 @@ const Modal: React.FC<IModalProps> = ({
     sizes[size]
   ])
   return (
-    <dialog id={id} className={dialogClasses}>
+    <dialog className="fixed inset-0 w-full h-screen open:flex bg-gray-400/30" {...props}>
       <div className={containerClasses}>
         <div className="bg-white shadow-sm rounded">
           <div className="flex justify-between items-center p-4 bg-gray-50 border-b border-gray-100 rounded-t">
             <Heading color="secondary" size="sm" weight="semibold" margin="mb-0">{title}</Heading>
-            <button className="text-gray-400 hover:text-gray-600 transition-colors cursor-pointer" commandfor={id} command="close">
+            <button className="text-gray-400 hover:text-gray-600 transition-colors cursor-pointer" onClick={onClose}>
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
               </svg>

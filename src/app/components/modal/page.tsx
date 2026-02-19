@@ -1,23 +1,21 @@
+'use client'
+
+import React from 'react'
 import NextLink from 'next/link'
 import Button from '@/app/components/ui/button'
 import Heading from '@/app/components/ui/heading'
 import Modal from '@/app/components/ui/modal'
 
-export default async function ModalComponent() {
+export default function ModalComponent() {
+  const [open, setOpen] = React.useState(false)
   return (
     <>
       <Heading color="secondary" margin="mt-5 mb-4"><code>Modal</code> Component</Heading>
       <hr className="border-gray-100 mb-3" />
-      <Button
-        command="show-modal"
-        commandfor="dialog-1"
-      >
+      <Button onClick={() => setOpen(true)}>
         Open Dialog 1
       </Button>
-      <Modal
-        id="dialog-1"
-        title="Modal Dialog Title"
-      >
+      <Modal open={open} title="Modal Dialog Title" onClose={() => setOpen(false)}>
         <p className="text-sm text-gray-600">This is a centered dialog component built with the HTML dialog element and Tailwind CSS. It's automatically centered both vertically and horizontally.</p>
       </Modal>
       <hr className="border-gray-100 mt-4 mb-4" />
