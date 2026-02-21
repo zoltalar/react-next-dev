@@ -47,7 +47,7 @@ const floatingImages: TFloatingImage[] = [
 
 const centerX = 600
 const centerY = 600
-const durations = [10, 12, 15, 20, 24]
+const durations = [5, 6, 7, 8, 10]
 
 const randomDuration = (): number => {
   const index = Math.floor(Math.random() * durations.length)

@@ -1,3 +1,14 @@
 @import "tailwindcss";
 
+dialog {
+  form {
+    .form-group:not(:last-child) {
+      @apply mb-3;
+    }
+    label {
+      @apply mb-1;
+    }
+  }
+}
+
 @custom-variant hover (&:hover);

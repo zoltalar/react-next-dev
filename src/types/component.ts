@@ -27,6 +27,11 @@ export interface IComponentProps {
   component: IComponent
 }
 
+export interface IRegisterFormImperativeHandle {
+  getFormData: () => FormData,
+  reset: () => void
+}
+
 export interface IHeadingProps {
   color?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark'
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl',
