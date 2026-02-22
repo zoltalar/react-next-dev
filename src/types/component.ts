@@ -28,8 +28,8 @@ export interface IComponentProps {
 }
 
 export interface IRegisterFormImperativeHandle {
-  getFormData: () => FormData,
-  reset: () => void
+  reset: () => void,
+  store: () => Promise<FormData|boolean>
 }
 
 export interface IHeadingProps {

@@ -1,15 +1,13 @@
 'use client'
 
 import React from 'react'
-import { clsx } from 'clsx'
+import { cn } from '@/app/lib/utils'
 import type { IButtonProps } from '@/types/component'
 
-const Button: React.FC<IButtonProps> = ({
-  children,
-  color = 'primary',
-  size = 'md',
-  ...props
-}) => {
+const Button = React.forwardRef<
+  HTMLButtonElement,
+  IButtonProps
+>(({ color = 'primary', size = 'md', className, ...props }, ref) => {
   const colors = {
     primary: 'bg-blue-500 text-white',
     secondary: 'bg-gray-500 text-white',
@@ -30,19 +28,20 @@ const Button: React.FC<IButtonProps> = ({
     lg: 'px-3 py-2 text-sm gap-2',
     xl:'px-3 py-2 text-base gap-2'
   }
-  const classes = clsx([
+  const classes = [
     colors[color],
     slots.base,
     sizes[size]
-  ])
+  ]
   return (
     <button
-      className={classes}
+      ref={ref}
+      className={cn([classes, className])}
       {...props}
     >
-      {children}
+      {props.children}
     </button>
   )
-}
+})
 
 export default Button

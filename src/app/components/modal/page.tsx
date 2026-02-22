@@ -2,6 +2,7 @@
 
 import React from 'react'
 import NextLink from 'next/link'
+import { ImSpinner2 } from 'react-icons/im'
 import Button from '@/app/components/ui/button'
 import Heading from '@/app/components/ui/heading'
 import Modal from '@/app/components/ui/modal'
@@ -11,10 +12,17 @@ import type { IRegisterFormImperativeHandle } from '@/types/component'
 export default function ModalComponent() {
   // Vars
   const [open, setOpen] = React.useState(false)
+  const [busy, setBusy] = React.useState(false)
   const formRef = React.useRef<IRegisterFormImperativeHandle>(null)
   // Functions
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
+  const handleClick = async (event: React.MouseEvent<HTMLButtonElement>): Promise<void> => {
     event.preventDefault()
+    setBusy(true)
+    const formData = await formRef.current?.store()
+    setBusy(false)   
+    if (formData instanceof FormData) {
+      setOpen(false)
+    }
   }
   const handleReset = (event: React.MouseEvent<HTMLButtonElement>): void => {
     event.preventDefault()
@@ -35,7 +43,10 @@ export default function ModalComponent() {
           <div className="flex justify-end space-x-3">
             <Button size="lg" color="secondary" onClick={() => setOpen(false)}>Close</Button>
             <Button size="lg" color="secondary" onClick={handleReset}>Reset</Button>
-            <Button size="lg" onClick={handleClick}>Submit</Button>
+            <Button size="lg" onClick={handleClick}>
+              Submit
+              {busy && <ImSpinner2 className="animate-spin" />}
+            </Button>
           </div>
         }
         onClose={() => setOpen(false)}
