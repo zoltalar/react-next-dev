@@ -2,17 +2,13 @@
 
 import React from 'react'
 import { clsx } from 'clsx'
-import Heading from '@/app/components/ui/heading'
+import { Heading } from '@/app/components/ui/heading'
 import type { IModalProps } from '@/types/component'
 
-const Modal: React.FC<IModalProps> = ({
-  title,
-  size = 'md',
-  footer,
-  children,
-  onClose,
-  ...props
-}) => {
+const Modal = React.forwardRef<
+  HTMLDialogElement,
+  IModalProps
+>(({ title, size = 'md', footer, children, onClose, ...props }, ref) => {
   const sizes = {
     'sm': 'max-w-md',
     'md': 'max-w-xl',
@@ -24,7 +20,7 @@ const Modal: React.FC<IModalProps> = ({
     sizes[size]
   ])
   return (
-    <dialog className="fixed inset-0 w-full h-screen open:flex bg-gray-400/30" {...props}>
+    <dialog ref={ref} className="fixed inset-0 w-full h-screen open:flex bg-gray-400/30" {...props}>
       <div className={containerClasses}>
         <div className="bg-white shadow-sm rounded">
           <div className="flex justify-between items-center p-4 bg-gray-50 border-b border-gray-100 rounded-t">
@@ -43,6 +39,6 @@ const Modal: React.FC<IModalProps> = ({
       </div>
     </dialog>
   )
-}
+})
 
-export default Modal
+export { Modal }

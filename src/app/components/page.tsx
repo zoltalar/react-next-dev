@@ -1,5 +1,5 @@
 import NextLink from 'next/link'
-import Heading from '@/app/components/ui/heading'
+import { Heading } from '@/app/components/ui/heading'
 import type { IComponent } from '@/types/component'
 
 export default async function Components() {

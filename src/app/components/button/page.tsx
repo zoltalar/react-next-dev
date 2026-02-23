@@ -1,10 +1,13 @@
 'use client'
 
 import NextLink from 'next/link'
-import Button from '@/app/components/ui/button'
-import Heading from '@/app/components/ui/heading'
+import { Button } from '@/app/components/ui/button'
+import { Heading } from '@/app/components/ui/heading'
 
 export default function ButtonComponent() {
+  const handleClick1 = () => {
+    alert('Button 1 clicked...')
+  }
   return (
     <>
       <Heading color="secondary" margin="mt-5 mb-4"><code>Button</code> Component</Heading>
@@ -18,7 +21,7 @@ export default function ButtonComponent() {
           <div><Button size="xs">Button 5</Button></div>
         </div>
         <div>
-          <div className="mb-3"><Button color="primary">Button 1</Button></div>
+          <div className="mb-3"><Button color="primary" onClick={handleClick1}>Button 1</Button></div>
           <div className="mb-3"><Button color="secondary">Button 2</Button></div>
           <div className="mb-3"><Button color="success">Button 3</Button></div>
           <div className="mb-3"><Button color="danger">Button 4</Button></div>

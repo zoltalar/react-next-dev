@@ -1,6 +1,6 @@
 import NextLink from 'next/link'
-import Breadcrumbs from '@/app/components/ui/breadcrumbs'
-import Heading from '@/app/components/ui/heading'
+import { Breadcrumbs } from '@/app/components/ui/breadcrumbs'
+import { Heading } from '@/app/components/ui/heading'
 import type { IBreadcrumbItem } from '@/types/component'
 
 export default async function BreadcrumbsComponent() {

@@ -27,12 +27,20 @@ export interface IComponentProps {
   component: IComponent
 }
 
+export interface IInputHelpTextProps extends React.ComponentProps<'div'> {
+  defaultText?: string
+}
+
+export interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  inputSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+}
+
 export interface IRegisterFormImperativeHandle {
   reset: () => void,
   store: () => Promise<FormData|boolean>
 }
 
-export interface IHeadingProps {
+export interface IHeadingProps extends React.ComponentProps<'h1'> {
   color?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark'
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl',
   weight?: 'thin' | 'extralight' | 'light' | 'normal' | 'medium' | 'semibold' | 'bold'

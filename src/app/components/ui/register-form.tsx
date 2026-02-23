@@ -1,9 +1,9 @@
 import React from 'react'
 import Asterisk from '@/app/components/ui/asterisk'
-import FormGroup from '@/app/components/ui/form-group'
+import { FormGroup } from '@/app/components/ui/form-group'
 import { Input } from '@/app/components/ui/input'
-import { InputError } from '@/app/components/ui/inpt-error'
-import Label from '@/app/components/ui/label'
+import { InputHelpText } from '@/app/components/ui/inpt-help-text'
+import { Label } from '@/app/components/ui/label'
 import type { IRegisterFormImperativeHandle } from '@/types/component'
 
 const RegisterForm = React.forwardRef<
@@ -33,7 +33,10 @@ const RegisterForm = React.forwardRef<
     })
   }
   const error = (name: keyof typeof errors): string | null => {
-    return errors[name] ?? null
+    if (errors[name] && errors[name] !== '') {
+      return errors[name]
+    }
+    return null
   }
   const resetData = (): void => {
     setData({...initialState})
@@ -77,10 +80,13 @@ const RegisterForm = React.forwardRef<
         <Input
           id={idFirstName}
           name="first_name"
+          className={error('first_name') !== null ? 'border-red-500' : ''}
           maxLength={100}
           onChange={handleChange}
         />
-        {error('first_name') !== null && <InputError>{error('first_name')}</InputError>}
+        <InputHelpText defaultText="Please specify your first name">
+          {error('first_name')}
+        </InputHelpText>
       </FormGroup>
       <FormGroup>
         <Label htmlFor={idLastName}>Last Name</Label>
@@ -88,10 +94,13 @@ const RegisterForm = React.forwardRef<
         <Input
           id={idLastName}
           name="last_name"
+          className={error('last_name') !== null ? 'border-red-500' : ''}
           maxLength={100}
           onChange={handleChange}
         />
-        {error('last_name') !== null && <InputError>{error('last_name')}</InputError>}
+        <InputHelpText defaultText="Please specify your last name">
+          {error('last_name')}
+        </InputHelpText>
       </FormGroup>
       <FormGroup>
         <Label htmlFor={idEmail}>Email</Label>
@@ -100,10 +109,11 @@ const RegisterForm = React.forwardRef<
           type="email"
           id={idEmail}
           name="email"
+          className={error('email') !== null ? 'border-red-500' : ''}
           maxLength={255}
           onChange={handleChange}
         />
-        {error('email') !== null && <InputError>{error('email')}</InputError>}
+        {error('email') !== null && <InputHelpText>{error('email')}</InputHelpText>}
       </FormGroup>
     </form>
   )

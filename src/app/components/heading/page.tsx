@@ -1,14 +1,19 @@
-import NextLink from 'next/link'
-import Heading from '@/app/components/ui/heading'
+'use client'
 
-export default async function HeadingComponent() {
+import NextLink from 'next/link'
+import { ImSpinner2 } from 'react-icons/im'
+import { Heading } from '@/app/components/ui/heading'
+
+export default function HeadingComponent() {
   return (
     <>
       <Heading color="secondary" margin="mt-5 mb-4"><code>Heading</code> Component</Heading>
       <hr className="border-gray-100 mb-3" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <div>
-          <Heading size="2xl">Heading 1</Heading>
+          <Heading size="2xl" className="group">
+            Heading 1 <ImSpinner2 className="hidden group-hover:inline-block animate-spin " />
+          </Heading>
           <Heading size="xl">Heading 2</Heading>
           <Heading size="lg">Heading 3</Heading>
           <Heading size="md">Heading 4</Heading>

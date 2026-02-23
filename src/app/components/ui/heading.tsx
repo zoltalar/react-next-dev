@@ -1,14 +1,14 @@
+'use client'
+
 import React from 'react'
-import { clsx } from 'clsx'
+import { cn } from '@/app/lib/utils'
 import type { IHeadingProps } from '@/types/component'
 
-const Heading: React.FC<IHeadingProps> = ({
-  color = 'primary',
-  size = 'md',
-  weight = 'medium',
-  margin = 'mb-3',
-  children
-}) => {
+const Heading = React.forwardRef<
+  HTMLHeadingElement,
+  IHeadingProps
+>(({
+  color = 'primary', size = 'md', weight = 'medium', margin = 'mb-3', className, children, ...props }, ref) => {
   const colors = {
     'primary': 'text-blue-500',
     'secondary': 'text-gray-700',
@@ -25,29 +25,30 @@ const Heading: React.FC<IHeadingProps> = ({
     }
     return `text-${size}`
   }
-  const classes = clsx([
+  const classes = [
     textClass(),
     `font-${weight}`,
     colors[color],
-    margin
-  ])
+    margin,
+    className
+  ]
   const renderTag = () => {
     switch (size) {
       case 'xs':
-        return <h6 className={classes}>{children}</h6>
+        return <h6 ref={ref} className={cn(classes)} {...props}>{children}</h6>
       case 'sm':
-        return <h5 className={classes}>{children}</h5>
+        return <h5 ref={ref} className={cn(classes)} {...props}>{children}</h5>
       case 'md':
-        return <h4 className={classes}>{children}</h4>
+        return <h4 ref={ref} className={cn(classes)} {...props}>{children}</h4>
       case 'lg':
-        return <h3 className={classes}>{children}</h3>
+        return <h3 ref={ref} className={cn(classes)} {...props}>{children}</h3>
       case 'xl':
-        return <h2 className={classes}>{children}</h2>
+        return <h2 ref={ref} className={cn(classes)} {...props}>{children}</h2>
       case '2xl':
-        return <h1 className={classes}>{children}</h1>
+        return <h1 ref={ref} className={cn(classes)} {...props}>{children}</h1>
     }
   }
   return renderTag()
-}
+})
 
-export default Heading
+export { Heading }

@@ -1,16 +1,15 @@
 import React from 'react'
 import { cn } from '@/app/lib/utils'
 
-const FormGroup: React.FC<React.HTMLProps<HTMLDivElement>> = ({
-  className,
-  children,
-  ...props
-}) => {
+const FormGroup = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentProps<'div'>
+>(({ className, children, ...props }, ref) => {
   return (
-    <div className={cn(['form-group', className])} {...props}>
+    <div ref={ref} className={cn(['form-group', className])} {...props}>
       {children}
     </div>
   )
-}
+})
 
-export default FormGroup
+export { FormGroup }

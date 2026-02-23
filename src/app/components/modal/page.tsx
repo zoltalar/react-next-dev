@@ -3,9 +3,9 @@
 import React from 'react'
 import NextLink from 'next/link'
 import { ImSpinner2 } from 'react-icons/im'
-import Button from '@/app/components/ui/button'
-import Heading from '@/app/components/ui/heading'
-import Modal from '@/app/components/ui/modal'
+import { Button } from '@/app/components/ui/button'
+import { Heading } from '@/app/components/ui/heading'
+import { Modal } from '@/app/components/ui/modal'
 import { RegisterForm } from '@/app/components/ui/register-form'
 import type { IRegisterFormImperativeHandle } from '@/types/component'
 
@@ -19,7 +19,7 @@ export default function ModalComponent() {
     event.preventDefault()
     setBusy(true)
     const formData = await formRef.current?.store()
-    setBusy(false)   
+    setBusy(false)
     if (formData instanceof FormData) {
       setOpen(false)
     }
